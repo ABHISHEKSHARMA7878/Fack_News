@@ -6,14 +6,10 @@ from nltk.corpus import stopwords
 from nltk.stem import PorterStemmer, WordNetLemmatizer
 import re
 
-# Ensure NLTK works on Streamlit Cloud
-nltk_data_path = os.path.join(os.getcwd(), "nltk_data")
-os.makedirs(nltk_data_path, exist_ok=True)
-nltk.data.path.append(nltk_data_path)
-
-nltk.download('stopwords', download_dir=nltk_data_path)
-nltk.download('wordnet', download_dir=nltk_data_path)
-nltk.download('punkt', download_dir=nltk_data_path)
+# Download required NLTK data
+nltk.download('stopwords')
+nltk.download('wordnet')
+nltk.download('punkt')
 
 # Initialize components
 stop_words = set(stopwords.words('english'))
@@ -167,7 +163,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-# Add some information about the app
-st.write("---")
-st.write("This app uses Logistic Regression, Naive Bayes, and Random Forest models to classify news articles as real or fake based on the text content.")
-st.write("Deployment with💓 using streamlit")
